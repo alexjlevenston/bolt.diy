@@ -152,6 +152,9 @@ importers:
       ai:
         specifier: ^4.1.2
         version: 4.1.2(react@18.3.1)(zod@3.24.1)
+      bcryptjs:
+        specifier: ^2.4.3
+        version: 2.4.3
       chalk:
         specifier: ^5.4.1
         version: 5.4.1
@@ -224,6 +227,12 @@ importers:
       remark-gfm:
         specifier: ^4.0.0
         version: 4.0.0
+      remix-auth:
+        specifier: ^4.1.0
+        version: 4.1.0
+      remix-auth-form:
+        specifier: ^3.0.0
+        version: 3.0.0(remix-auth@4.1.0)
       remix-island:
         specifier: ^0.2.0
         version: 0.2.0(@remix-run/react@2.15.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.7.2))(@remix-run/server-runtime@2.15.0(typescript@5.7.2))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -2950,6 +2959,9 @@ packages:
   base64-js@1.5.1:
     resolution: {integrity: sha512-AKpaYlHn8t4SVbOHCy+b5+KKgvR4vrsD8vbvrbiQJps7fKDTkjkDry6ji0rUJjC0kzbNePLwzxq8iypo41qeWA==}
 
+  bcryptjs@2.4.3:
+    resolution: {integrity: sha512-V/Hy/X9Vt7f3BbPJEi8BdVFMByHi+jNXrYkW3huaybV/kQ0KJg0Y6PkEMbn+zeT+i+SiKZ/HMqJGIIt4LZDqNQ==}
+
   before-after-hook@3.0.2:
     resolution: {integrity: sha512-Nik3Sc0ncrMK4UUdXQmAnRtzmNQTAAXmXIopizwZ1W1t8QmfJj+zL4OA2I7XPTPW5z5TDqv4hRo/JzouDJnX3A==}
 
@@ -5267,6 +5279,16 @@ packages:
 
   remark-stringify@11.0.0:
     resolution: {integrity: sha512-1OSmLd3awB/t8qdoEOMazZkNsfVTeY4fTsgzcQFdXNq8ToTN4ZGwrMnlda4K6smTFKD+GRV6O48i6Z4iKgPPpw==}
+
+  remix-auth-form@3.0.0:
+    resolution: {integrity: sha512-2c8d9BUJhnOrXg2w/iELLMj7RYT9EDI5eip9DSfN8caCTw0V33tNXvUNW44cYJQ8CjwAPi94vVaaezCHEdTSbQ==}
+    engines: {node: '>=20.0.0'}
+    peerDependencies:
+      remix-auth: ^4.0.0
+
+  remix-auth@4.1.0:
+    resolution: {integrity: sha512-Xdy42clt+g79GCn+Wl1+B6S/yWnvrStnk62vo1pGuRuUwHC+pjmeEE52ZRkRPuhLGqsQnoDD9TVz/wfEJAGF8g==}
+    engines: {node: '>=20.0.0'}
 
   remix-island@0.2.0:
     resolution: {integrity: sha512-NujWtmulgupxNOMiWKAj8lg56eYsy09aV/2pML8rov8N8LmY1UnSml4XYad+KHLy/pgZ1D9UxAmjI6GBJydTUg==}
@@ -9405,6 +9427,8 @@ snapshots:
 
   base64-js@1.5.1: {}
 
+  bcryptjs@2.4.3: {}
+
   before-after-hook@3.0.2: {}
 
   binary-extensions@2.3.0: {}
@@ -12351,6 +12375,12 @@ snapshots:
       '@types/mdast': 4.0.4
       mdast-util-to-markdown: 2.1.2
       unified: 11.0.5
+
+  remix-auth-form@3.0.0(remix-auth@4.1.0):
+    dependencies:
+      remix-auth: 4.1.0
+
+  remix-auth@4.1.0: {}
 
   remix-island@0.2.0(@remix-run/react@2.15.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.7.2))(@remix-run/server-runtime@2.15.0(typescript@5.7.2))(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
     dependencies:
