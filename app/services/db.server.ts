@@ -11,7 +11,9 @@ declare global {
 
 // Helper function to create PrismaClient instance with Accelerate
 function getPrismaClient() {
-  return new PrismaClient().$extends(withAccelerate());
+  return new PrismaClient({
+    datasourceUrl: process.env.DATABASE_URL,
+  }).$extends(withAccelerate());
 }
 
 // This prevents multiple instances of Prisma Client in development
