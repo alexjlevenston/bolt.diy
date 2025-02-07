@@ -61,6 +61,7 @@
     "@octokit/types": "^13.6.2",
     "@openrouter/ai-sdk-provider": "^0.0.5",
     "@prisma/client": "^6.3.1",
+    "@prisma/extension-accelerate": "^1.2.1",
     "@radix-ui/react-context-menu": "^2.2.2",
     "@radix-ui/react-dialog": "^1.1.2",
     "@radix-ui/react-dropdown-menu": "^2.1.2",
