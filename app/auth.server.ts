@@ -14,9 +14,9 @@ export const authenticator = new Authenticator<User>();
 
 authenticator.use(
   new FormStrategy(async ({ form }) => {
-    const email = form.get('email');
-    const password = form.get('password');
-    const hashedPassword = await bcrypt.hash(password as string, process.env.DB_SALT as string);
+    const email = form.get('email') as string;
+    const password = form.get('password') as string;
+    const hashedPassword = await bcrypt.hash(password, process.env.DB_SALT as string);
 
     if (!email || !password) {
       throw new Error('Email and password are required');
@@ -38,7 +38,7 @@ authenticator.use(
       };
     }
 
-    const isValid = await bcrypt.compare(hashedPassword as string, prismaUser.password);
+    const isValid = await bcrypt.compare(hashedPassword, prismaUser.password);
 
     if (!isValid) {
       throw new Error('Incorrect password');
