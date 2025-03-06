@@ -72,29 +72,29 @@ export function createCommandsMessage(commands: ProjectCommands): Message | null
 
   if (commands.setupCommand) {
     commandString += `
-<boltAction type="shell">${commands.setupCommand}</boltAction>`;
+<codeagentAction type="shell">${commands.setupCommand}</codeagentAction>`;
   }
 
   if (commands.startCommand) {
     commandString += `
-<boltAction type="start">${commands.startCommand}</boltAction>
+<codeagentAction type="start">${commands.startCommand}</codeagentAction>
 `;
   }
 
   return {
     role: 'assistant',
     content: `
-<boltArtifact id="project-setup" title="Project Setup">
+<codeagentArtifact id="project-setup" title="Project Setup">
 ${commandString}
-</boltArtifact>${commands.followupMessage ? `\n\n${commands.followupMessage}` : ''}`,
+</codeagentArtifact>${commands.followupMessage ? `\n\n${commands.followupMessage}` : ''}`,
     id: generateId(),
     createdAt: new Date(),
   };
 }
 
-export function escapeBoltArtifactTags(input: string) {
-  // Regular expression to match boltArtifact tags and their content
-  const regex = /(<boltArtifact[^>]*>)([\s\S]*?)(<\/boltArtifact>)/g;
+export function escapeCodeAgentArtifactTags(input: string) {
+  // Regular expression to match codeagentArtifact tags and their content
+  const regex = /(<codeagentArtifact[^>]*>)([\s\S]*?)(<\/codeagentArtifact>)/g;
 
   return input.replace(regex, (match, openTag, content, closeTag) => {
     // Escape the opening tag
@@ -108,9 +108,9 @@ export function escapeBoltArtifactTags(input: string) {
   });
 }
 
-export function escapeBoltAActionTags(input: string) {
-  // Regular expression to match boltArtifact tags and their content
-  const regex = /(<boltAction[^>]*>)([\s\S]*?)(<\/boltAction>)/g;
+export function escapeCodeAgentAActionTags(input: string) {
+  // Regular expression to match codeagentArtifact tags and their content
+  const regex = /(<codeagentAction[^>]*>)([\s\S]*?)(<\/codeagentAction>)/g;
 
   return input.replace(regex, (match, openTag, content, closeTag) => {
     // Escape the opening tag
@@ -124,6 +124,6 @@ export function escapeBoltAActionTags(input: string) {
   });
 }
 
-export function escapeBoltTags(input: string) {
-  return escapeBoltArtifactTags(escapeBoltAActionTags(input));
+export function escapeCodeAgentTags(input: string) {
+  return escapeCodeAgentArtifactTags(escapeCodeAgentAActionTags(input));
 }

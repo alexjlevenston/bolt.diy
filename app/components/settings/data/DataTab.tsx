@@ -118,10 +118,10 @@ export default function DataTab() {
       selectedProvider: Cookies.get('selectedProvider'),
       githubUsername: Cookies.get('githubUsername'),
       githubToken: Cookies.get('githubToken'),
-      bolt_theme: localStorage.getItem('bolt_theme'),
+      codeagent_theme: localStorage.getItem('codeagent_theme'),
     };
 
-    downloadAsJson(settings, 'bolt-settings.json');
+    downloadAsJson(settings, 'codeagent-settings.json');
     toast.success('Settings exported successfully');
   };
 
@@ -139,7 +139,7 @@ export default function DataTab() {
         const settings = JSON.parse(e.target?.result as string);
 
         Object.entries(settings).forEach(([key, value]) => {
-          if (key === 'bolt_theme') {
+          if (key === 'codeagent_theme') {
             if (value) {
               localStorage.setItem(key, value as string);
             }
@@ -241,7 +241,7 @@ export default function DataTab() {
     description: string;
     urlId?: string;
   }> => {
-    // Handle Bolt standard format (single chat)
+    // Handle CodeAgent standard format (single chat)
     if (data.messages && Array.isArray(data.messages)) {
       const chatId = crypto.randomUUID();
       return [
@@ -254,7 +254,7 @@ export default function DataTab() {
       ];
     }
 
-    // Handle Bolt export format (multiple chats)
+    // Handle CodeAgent export format (multiple chats)
     if (data.chats && Array.isArray(data.chats)) {
       return data.chats.map((chat: { id?: string; messages: Message[]; description?: string; urlId?: string }) => ({
         id: chat.id || crypto.randomUUID(),
@@ -309,24 +309,24 @@ export default function DataTab() {
   };
 
   return (
-    <div className="p-4 bg-bolt-elements-bg-depth-2 border border-bolt-elements-borderColor rounded-lg mb-4">
+    <div className="p-4 bg-codeagent-elements-bg-depth-2 border border-codeagent-elements-borderColor rounded-lg mb-4">
       <div className="mb-6">
-        <h3 className="text-lg font-medium text-bolt-elements-textPrimary mb-4">Data Management</h3>
+        <h3 className="text-lg font-medium text-codeagent-elements-textPrimary mb-4">Data Management</h3>
         <div className="space-y-8">
           <div className="flex flex-col gap-4">
             <div>
-              <h4 className="text-bolt-elements-textPrimary mb-2">Chat History</h4>
-              <p className="text-sm text-bolt-elements-textSecondary mb-4">Export or delete all your chat history.</p>
+              <h4 className="text-codeagent-elements-textPrimary mb-2">Chat History</h4>
+              <p className="text-sm text-codeagent-elements-textSecondary mb-4">Export or delete all your chat history.</p>
               <div className="flex gap-4">
                 <button
                   onClick={handleExportAllChats}
-                  className="px-4 py-2 bg-bolt-elements-button-primary-background hover:bg-bolt-elements-button-primary-backgroundHover text-bolt-elements-textPrimary rounded-lg transition-colors"
+                  className="px-4 py-2 bg-codeagent-elements-button-primary-background hover:bg-codeagent-elements-button-primary-backgroundHover text-codeagent-elements-textPrimary rounded-lg transition-colors"
                 >
                   Export All Chats
                 </button>
                 <button
                   onClick={handleImportChats}
-                  className="px-4 py-2 bg-bolt-elements-button-primary-background hover:bg-bolt-elements-button-primary-backgroundHover text-bolt-elements-textPrimary rounded-lg transition-colors"
+                  className="px-4 py-2 bg-codeagent-elements-button-primary-background hover:bg-codeagent-elements-button-primary-backgroundHover text-codeagent-elements-textPrimary rounded-lg transition-colors"
                 >
                   Import Chats
                 </button>
@@ -334,7 +334,7 @@ export default function DataTab() {
                   onClick={handleDeleteAllChats}
                   disabled={isDeleting}
                   className={classNames(
-                    'px-4 py-2 bg-bolt-elements-button-danger-background hover:bg-bolt-elements-button-danger-backgroundHover text-bolt-elements-button-danger-text rounded-lg transition-colors',
+                    'px-4 py-2 bg-codeagent-elements-button-danger-background hover:bg-codeagent-elements-button-danger-backgroundHover text-codeagent-elements-button-danger-text rounded-lg transition-colors',
                     isDeleting ? 'opacity-50 cursor-not-allowed' : '',
                   )}
                 >
@@ -344,18 +344,18 @@ export default function DataTab() {
             </div>
 
             <div>
-              <h4 className="text-bolt-elements-textPrimary mb-2">Settings Backup</h4>
-              <p className="text-sm text-bolt-elements-textSecondary mb-4">
+              <h4 className="text-codeagent-elements-textPrimary mb-2">Settings Backup</h4>
+              <p className="text-sm text-codeagent-elements-textSecondary mb-4">
                 Export your settings to a JSON file or import settings from a previously exported file.
               </p>
               <div className="flex gap-4">
                 <button
                   onClick={handleExportSettings}
-                  className="px-4 py-2 bg-bolt-elements-button-primary-background hover:bg-bolt-elements-button-primary-backgroundHover text-bolt-elements-textPrimary rounded-lg transition-colors"
+                  className="px-4 py-2 bg-codeagent-elements-button-primary-background hover:bg-codeagent-elements-button-primary-backgroundHover text-codeagent-elements-textPrimary rounded-lg transition-colors"
                 >
                   Export Settings
                 </button>
-                <label className="px-4 py-2 bg-bolt-elements-button-primary-background hover:bg-bolt-elements-button-primary-backgroundHover text-bolt-elements-textPrimary rounded-lg transition-colors cursor-pointer">
+                <label className="px-4 py-2 bg-codeagent-elements-button-primary-background hover:bg-codeagent-elements-button-primary-backgroundHover text-codeagent-elements-textPrimary rounded-lg transition-colors cursor-pointer">
                   Import Settings
                   <input type="file" accept=".json" onChange={handleImportSettings} className="hidden" />
                 </label>
@@ -363,18 +363,18 @@ export default function DataTab() {
             </div>
 
             <div>
-              <h4 className="text-bolt-elements-textPrimary mb-2">API Keys Management</h4>
-              <p className="text-sm text-bolt-elements-textSecondary mb-4">
+              <h4 className="text-codeagent-elements-textPrimary mb-2">API Keys Management</h4>
+              <p className="text-sm text-codeagent-elements-textSecondary mb-4">
                 Import API keys from a JSON file or download a template to fill in your keys.
               </p>
               <div className="flex gap-4">
                 <button
                   onClick={handleExportApiKeyTemplate}
-                  className="px-4 py-2 bg-bolt-elements-button-primary-background hover:bg-bolt-elements-button-primary-backgroundHover text-bolt-elements-textPrimary rounded-lg transition-colors"
+                  className="px-4 py-2 bg-codeagent-elements-button-primary-background hover:bg-codeagent-elements-button-primary-backgroundHover text-codeagent-elements-textPrimary rounded-lg transition-colors"
                 >
                   Download Template
                 </button>
-                <label className="px-4 py-2 bg-bolt-elements-button-primary-background hover:bg-bolt-elements-button-primary-backgroundHover text-bolt-elements-textPrimary rounded-lg transition-colors cursor-pointer">
+                <label className="px-4 py-2 bg-codeagent-elements-button-primary-background hover:bg-codeagent-elements-button-primary-backgroundHover text-codeagent-elements-textPrimary rounded-lg transition-colors cursor-pointer">
                   Import API Keys
                   <input type="file" accept=".json" onChange={handleImportApiKeys} className="hidden" />
                 </label>

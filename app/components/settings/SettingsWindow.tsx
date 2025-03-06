@@ -65,7 +65,7 @@ export const SettingsWindow = ({ open, onClose }: SettingsProps) => {
         </RadixDialog.Overlay>
         <RadixDialog.Content aria-describedby={undefined} asChild>
           <motion.div
-            className="fixed top-[50%] left-[50%] z-max h-[85vh] w-[90vw] max-w-[900px] translate-x-[-50%] translate-y-[-50%] border border-bolt-elements-borderColor rounded-lg shadow-lg focus:outline-none overflow-hidden"
+            className="fixed top-[50%] left-[50%] z-max h-[85vh] w-[90vw] max-w-[900px] translate-x-[-50%] translate-y-[-50%] border border-codeagent-elements-borderColor rounded-lg shadow-lg focus:outline-none overflow-hidden"
             initial="closed"
             animate="open"
             exit="closed"
@@ -74,11 +74,11 @@ export const SettingsWindow = ({ open, onClose }: SettingsProps) => {
             <div className="flex h-full">
               <div
                 className={classNames(
-                  'w-48 border-r border-bolt-elements-borderColor bg-bolt-elements-background-depth-1 p-4 flex flex-col justify-between',
+                  'w-48 border-r border-codeagent-elements-borderColor bg-codeagent-elements-background-depth-1 p-4 flex flex-col justify-between',
                   styles['settings-tabs'],
                 )}
               >
-                <DialogTitle className="flex-shrink-0 text-lg font-semibold text-bolt-elements-textPrimary mb-2">
+                <DialogTitle className="flex-shrink-0 text-lg font-semibold text-codeagent-elements-textPrimary mb-2">
                   Settings
                 </DialogTitle>
                 {tabs.map((tab) => (
@@ -93,7 +93,7 @@ export const SettingsWindow = ({ open, onClose }: SettingsProps) => {
                 ))}
                 <div className="mt-auto flex flex-col gap-2">
                   <a
-                    href="https://github.com/stackblitz-labs/bolt.diy"
+                    href="https://github.com/stackblitz-labs/codeagent.diy"
                     target="_blank"
                     rel="noopener noreferrer"
                     className={classNames(styles['settings-button'], 'flex items-center gap-2')}
@@ -102,7 +102,7 @@ export const SettingsWindow = ({ open, onClose }: SettingsProps) => {
                     GitHub
                   </a>
                   <a
-                    href="https://stackblitz-labs.github.io/bolt.diy/"
+                    href="https://stackblitz-labs.github.io/codeagent.diy/"
                     target="_blank"
                     rel="noopener noreferrer"
                     className={classNames(styles['settings-button'], 'flex items-center gap-2')}
@@ -113,7 +113,7 @@ export const SettingsWindow = ({ open, onClose }: SettingsProps) => {
                 </div>
               </div>
 
-              <div className="flex-1 flex flex-col p-8 pt-10 bg-bolt-elements-background-depth-2">
+              <div className="flex-1 flex flex-col p-8 pt-10 bg-codeagent-elements-background-depth-2">
                 <div className="flex-1 overflow-y-auto">{tabs.find((tab) => tab.id === activeTab)?.component}</div>
               </div>
             </div>

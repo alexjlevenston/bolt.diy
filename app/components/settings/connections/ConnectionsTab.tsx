@@ -91,27 +91,27 @@ export default function ConnectionsTab() {
   };
 
   return (
-    <div className="p-4 mb-4 border border-bolt-elements-borderColor rounded-lg bg-bolt-elements-background-depth-3">
-      <h3 className="text-lg font-medium text-bolt-elements-textPrimary mb-4">GitHub Connection</h3>
+    <div className="p-4 mb-4 border border-codeagent-elements-borderColor rounded-lg bg-codeagent-elements-background-depth-3">
+      <h3 className="text-lg font-medium text-codeagent-elements-textPrimary mb-4">GitHub Connection</h3>
       <div className="flex mb-4">
         <div className="flex-1 mr-2">
-          <label className="block text-sm text-bolt-elements-textSecondary mb-1">GitHub Username:</label>
+          <label className="block text-sm text-codeagent-elements-textSecondary mb-1">GitHub Username:</label>
           <input
             type="text"
             value={githubUsername}
             onChange={(e) => setGithubUsername(e.target.value)}
             disabled={isVerifying}
-            className="w-full bg-white dark:bg-bolt-elements-background-depth-4 relative px-2 py-1.5 rounded-md focus:outline-none placeholder-bolt-elements-textTertiary text-bolt-elements-textPrimary dark:text-bolt-elements-textPrimary border border-bolt-elements-borderColor disabled:opacity-50"
+            className="w-full bg-white dark:bg-codeagent-elements-background-depth-4 relative px-2 py-1.5 rounded-md focus:outline-none placeholder-codeagent-elements-textTertiary text-codeagent-elements-textPrimary dark:text-codeagent-elements-textPrimary border border-codeagent-elements-borderColor disabled:opacity-50"
           />
         </div>
         <div className="flex-1">
-          <label className="block text-sm text-bolt-elements-textSecondary mb-1">Personal Access Token:</label>
+          <label className="block text-sm text-codeagent-elements-textSecondary mb-1">Personal Access Token:</label>
           <input
             type="password"
             value={githubToken}
             onChange={(e) => setGithubToken(e.target.value)}
             disabled={isVerifying}
-            className="w-full bg-white dark:bg-bolt-elements-background-depth-4 relative px-2 py-1.5 rounded-md focus:outline-none placeholder-bolt-elements-textTertiary text-bolt-elements-textPrimary dark:text-bolt-elements-textPrimary border border-bolt-elements-borderColor disabled:opacity-50"
+            className="w-full bg-white dark:bg-codeagent-elements-background-depth-4 relative px-2 py-1.5 rounded-md focus:outline-none placeholder-codeagent-elements-textTertiary text-codeagent-elements-textPrimary dark:text-codeagent-elements-textPrimary border border-codeagent-elements-borderColor disabled:opacity-50"
           />
         </div>
       </div>
@@ -120,7 +120,7 @@ export default function ConnectionsTab() {
           <button
             onClick={handleSaveConnection}
             disabled={isVerifying || !githubUsername || !githubToken}
-            className="bg-bolt-elements-button-primary-background rounded-lg px-4 py-2 mr-2 transition-colors duration-200 hover:bg-bolt-elements-button-primary-backgroundHover text-bolt-elements-button-primary-text disabled:opacity-50 disabled:cursor-not-allowed flex items-center"
+            className="bg-codeagent-elements-button-primary-background rounded-lg px-4 py-2 mr-2 transition-colors duration-200 hover:bg-codeagent-elements-button-primary-backgroundHover text-codeagent-elements-button-primary-text disabled:opacity-50 disabled:cursor-not-allowed flex items-center"
           >
             {isVerifying ? (
               <>
@@ -134,7 +134,7 @@ export default function ConnectionsTab() {
         ) : (
           <button
             onClick={handleDisconnect}
-            className="bg-bolt-elements-button-danger-background rounded-lg px-4 py-2 mr-2 transition-colors duration-200 hover:bg-bolt-elements-button-danger-backgroundHover text-bolt-elements-button-danger-text"
+            className="bg-codeagent-elements-button-danger-background rounded-lg px-4 py-2 mr-2 transition-colors duration-200 hover:bg-codeagent-elements-button-danger-backgroundHover text-codeagent-elements-button-danger-text"
           >
             Disconnect
           </button>

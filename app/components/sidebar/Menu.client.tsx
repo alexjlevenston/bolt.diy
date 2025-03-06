@@ -47,7 +47,7 @@ function CurrentDateTime() {
   }, []);
 
   return (
-    <div className="flex items-center gap-2 px-4 py-3 font-bold text-gray-700 dark:text-gray-300 border-b border-bolt-elements-borderColor">
+    <div className="flex items-center gap-2 px-4 py-3 font-bold text-gray-700 dark:text-gray-300 border-b border-codeagent-elements-borderColor">
       <div className="h-4 w-4 i-ph:clock-thin" />
       {dateTime.toLocaleDateString()} {dateTime.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
     </div>
@@ -143,7 +143,7 @@ export const Menu = () => {
       initial="closed"
       animate={open ? 'open' : 'closed'}
       variants={menuVariants}
-      className="flex selection-accent flex-col side-menu fixed top-0 w-[350px] h-full bg-bolt-elements-background-depth-2 border-r rounded-r-3xl border-bolt-elements-borderColor z-sidebar shadow-xl shadow-bolt-elements-sidebar-dropdownShadow text-sm"
+      className="flex selection-accent flex-col side-menu fixed top-0 w-[350px] h-full bg-codeagent-elements-background-depth-2 border-r rounded-r-3xl border-codeagent-elements-borderColor z-sidebar shadow-xl shadow-codeagent-elements-sidebar-dropdownShadow text-sm"
     >
       <div className="h-[60px]" /> {/* Spacer for top margin */}
       <CurrentDateTime />
@@ -151,14 +151,14 @@ export const Menu = () => {
         <div className="p-4 select-none">
           <a
             href="/"
-            className="flex gap-2 items-center bg-bolt-elements-sidebar-buttonBackgroundDefault text-bolt-elements-sidebar-buttonText hover:bg-bolt-elements-sidebar-buttonBackgroundHover rounded-md p-2 transition-theme mb-4"
+            className="flex gap-2 items-center bg-codeagent-elements-sidebar-buttonBackgroundDefault text-codeagent-elements-sidebar-buttonText hover:bg-codeagent-elements-sidebar-buttonBackgroundHover rounded-md p-2 transition-theme mb-4"
           >
-            <span className="inline-block i-bolt:chat scale-110" />
+            <span className="inline-block i-codeagent:chat scale-110" />
             Start new chat
           </a>
           <div className="relative w-full">
             <input
-              className="w-full bg-white dark:bg-bolt-elements-background-depth-4 relative px-2 py-1.5 rounded-md focus:outline-none placeholder-bolt-elements-textTertiary text-bolt-elements-textPrimary dark:text-bolt-elements-textPrimary border border-bolt-elements-borderColor"
+              className="w-full bg-white dark:bg-codeagent-elements-background-depth-4 relative px-2 py-1.5 rounded-md focus:outline-none placeholder-codeagent-elements-textTertiary text-codeagent-elements-textPrimary dark:text-codeagent-elements-textPrimary border border-codeagent-elements-borderColor"
               type="search"
               placeholder="Search"
               onChange={handleSearchChange}
@@ -166,17 +166,17 @@ export const Menu = () => {
             />
           </div>
         </div>
-        <div className="text-bolt-elements-textPrimary font-medium pl-6 pr-5 my-2">Your Chats</div>
+        <div className="text-codeagent-elements-textPrimary font-medium pl-6 pr-5 my-2">Your Chats</div>
         <div className="flex-1 overflow-auto pl-4 pr-5 pb-5">
           {filteredList.length === 0 && (
-            <div className="pl-2 text-bolt-elements-textTertiary">
+            <div className="pl-2 text-codeagent-elements-textTertiary">
               {list.length === 0 ? 'No previous conversations' : 'No matches found'}
             </div>
           )}
           <DialogRoot open={dialogContent !== null}>
             {binDates(filteredList).map(({ category, items }) => (
               <div key={category} className="mt-4 first:mt-0 space-y-1">
-                <div className="text-bolt-elements-textTertiary sticky top-0 z-1 bg-bolt-elements-background-depth-2 pl-2 pt-2 pb-1">
+                <div className="text-codeagent-elements-textTertiary sticky top-0 z-1 bg-codeagent-elements-background-depth-2 pl-2 pt-2 pb-1">
                   {category}
                 </div>
                 {items.map((item) => (
@@ -202,7 +202,7 @@ export const Menu = () => {
                       <p className="mt-1">Are you sure you want to delete this chat?</p>
                     </div>
                   </DialogDescription>
-                  <div className="px-5 pb-4 bg-bolt-elements-background-depth-2 flex gap-2 justify-end">
+                  <div className="px-5 pb-4 bg-codeagent-elements-background-depth-2 flex gap-2 justify-end">
                     <DialogButton type="secondary" onClick={closeDialog}>
                       Cancel
                     </DialogButton>
@@ -221,7 +221,7 @@ export const Menu = () => {
             </Dialog>
           </DialogRoot>
         </div>
-        <div className="flex items-center justify-between border-t border-bolt-elements-borderColor p-4">
+        <div className="flex items-center justify-between border-t border-codeagent-elements-borderColor p-4">
           <SettingsButton onClick={() => setIsSettingsOpen(true)} />
           <ThemeSwitch />
         </div>

@@ -3,7 +3,7 @@ import { toast } from 'react-toastify';
 import { ImportFolderButton } from '~/components/chat/ImportFolderButton';
 
 type ChatData = {
-  messages?: Message[]; // Standard Bolt format
+  messages?: Message[]; // Standard CodeAgent format
   description?: string; // Optional description
 };
 
@@ -62,14 +62,14 @@ export function ImportButtons(importChat: ((description: string, messages: Messa
               const input = document.getElementById('chat-import');
               input?.click();
             }}
-            className="px-4 py-2 rounded-lg border border-bolt-elements-borderColor bg-bolt-elements-prompt-background text-bolt-elements-textPrimary hover:bg-bolt-elements-background-depth-3 transition-all flex items-center gap-2"
+            className="px-4 py-2 rounded-lg border border-codeagent-elements-borderColor bg-codeagent-elements-prompt-background text-codeagent-elements-textPrimary hover:bg-codeagent-elements-background-depth-3 transition-all flex items-center gap-2"
           >
             <div className="i-ph:upload-simple" />
             Import Chat
           </button>
           <ImportFolderButton
             importChat={importChat}
-            className="px-4 py-2 rounded-lg border border-bolt-elements-borderColor bg-bolt-elements-prompt-background text-bolt-elements-textPrimary hover:bg-bolt-elements-background-depth-3 transition-all flex items-center gap-2"
+            className="px-4 py-2 rounded-lg border border-codeagent-elements-borderColor bg-codeagent-elements-prompt-background text-codeagent-elements-textPrimary hover:bg-codeagent-elements-background-depth-3 transition-all flex items-center gap-2"
           />
         </div>
       </div>

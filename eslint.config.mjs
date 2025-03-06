@@ -8,7 +8,7 @@ export default [
       '**/dist',
       '**/node_modules',
       '**/.wrangler',
-      '**/bolt/build',
+      '**/codeagent/build',
       '**/.history',
     ],
   },

@@ -1,7 +1,7 @@
 import ignore from 'ignore';
 import { useGit } from '~/lib/hooks/useGit';
 import type { Message } from 'ai';
-import { detectProjectCommands, createCommandsMessage, escapeBoltTags } from '~/utils/projectCommands';
+import { detectProjectCommands, createCommandsMessage, escapeCodeAgentTags } from '~/utils/projectCommands';
 import { generateId } from '~/utils/fileUtils';
 import { useState } from 'react';
 import { toast } from 'react-toastify';
@@ -79,16 +79,16 @@ export default function GitCloneButton({ importChat }: GitCloneButtonProps) {
           const filesMessage: Message = {
             role: 'assistant',
             content: `Cloning the repo ${repoUrl} into ${workdir}
-<boltArtifact id="imported-files" title="Git Cloned Files" type="bundled">
+<codeagentArtifact id="imported-files" title="Git Cloned Files" type="bundled">
 ${fileContents
   .map(
     (file) =>
-      `<boltAction type="file" filePath="${file.path}">
-${escapeBoltTags(file.content)}
-</boltAction>`,
+      `<codeagentAction type="file" filePath="${file.path}">
+${escapeCodeAgentTags(file.content)}
+</codeagentAction>`,
   )
   .join('\n')}
-</boltArtifact>`,
+</codeagentArtifact>`,
             id: generateId(),
             createdAt: new Date(),
           };
@@ -115,7 +115,7 @@ ${escapeBoltTags(file.content)}
       <button
         onClick={onClick}
         title="Clone a Git Repo"
-        className="px-4 py-2 rounded-lg border border-bolt-elements-borderColor bg-bolt-elements-prompt-background text-bolt-elements-textPrimary hover:bg-bolt-elements-background-depth-3 transition-all flex items-center gap-2"
+        className="px-4 py-2 rounded-lg border border-codeagent-elements-borderColor bg-codeagent-elements-prompt-background text-codeagent-elements-textPrimary hover:bg-codeagent-elements-background-depth-3 transition-all flex items-center gap-2"
       >
         <span className="i-ph:git-branch" />
         Clone a Git Repo
